@@ -72,6 +72,14 @@ select banco.nombre,
 from banco
 order by noviembre_2020;
 
+-- consulta 1
+SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) Ranking
+ FROM indicador join banco on indicador.id_banco=banco.id where fecha ='2020-11-30' limit 5;
+
+-- consulta 2
+SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo asc) Ranking
+ FROM indicador join banco on indicador.id_banco=banco.id where fecha ='2021-02-28' limit 5;
+
 -- consulta 3
 select ROW_NUMBER() OVER(ORDER BY sum(RowNumberb)asc) ranking, nombre,sum(activo) from(SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
 join banco on indicador.id_banco=banco.id where fecha ='2020-11-30'
