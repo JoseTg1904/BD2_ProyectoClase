@@ -73,15 +73,20 @@ from banco
 order by noviembre_2020;
 
 -- consulta 1
+select * from (
 SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) Ranking
- FROM indicador join banco on indicador.id_banco=banco.id where fecha ='2020-11-30' limit 5;
+FROM indicador join banco on indicador.id_banco=banco.id where fecha ='2020-11-30' limit 5) as col1
+order by col1.activo;
 
 -- consulta 2
+SELECT * FROM (
 SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo asc) Ranking
- FROM indicador join banco on indicador.id_banco=banco.id where fecha ='2021-02-28' limit 5;
+FROM indicador join banco on indicador.id_banco=banco.id where fecha ='2021-02-28' limit 5) AS col1
+order by col1.activo desc;
 
 -- consulta 3
-select ROW_NUMBER() OVER(ORDER BY sum(RowNumberb)asc) ranking, nombre,sum(activo) from(SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
+select * from (
+select ROW_NUMBER() OVER(ORDER BY sum(RowNumberb)asc) ranking, nombre,sum(activo) as suma from(SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
 join banco on indicador.id_banco=banco.id where fecha ='2020-11-30'
 UNION SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
 join banco on indicador.id_banco=banco.id where fecha ='2020-12-31' 
@@ -93,7 +98,8 @@ UNION SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo des
 join banco on indicador.id_banco=banco.id where fecha ='2021-03-31' 
 UNION SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
 join banco on indicador.id_banco=banco.id where fecha ='2021-04-30')AS tabla
-group by nombre order by sum(RowNumberb)limit 3;
+group by nombre order by sum(RowNumberb)limit 3) as col1
+order by col1.suma;
 
 -- consulta 4
 select ROW_NUMBER() OVER(ORDER BY sum(RowNumberb) asc) ranking, nombre,sum(activo) from(SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador

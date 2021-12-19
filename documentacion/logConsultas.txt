@@ -96,37 +96,42 @@ order by noviembre_2020;
 
 -- consulta 1
 
+select * from (
 SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) Ranking
-FROM indicador join banco on indicador.id_banco=banco.id where fecha ='2020-11-30' limit 5;
+FROM indicador join banco on indicador.id_banco=banco.id where fecha ='2020-11-30' limit 5) as col1
+order by col1.activo;
 
 +-----------------------------------+-----------+---------+
 | nombre                            | activo    | Ranking |
 +-----------------------------------+-----------+---------+
-| INDUSTRIAL, S. A.                 | 107179306 |       1 |
-| DE DESARROLLO RURAL, S. A.        |  84433466 |       2 |
-| G&T CONTINENTAL, S. A.            |  55685038 |       3 |
-| DE AMÉRICA CENTRAL, S. A.         |  34342100 |       4 |
 | AGROMERCANTIL DE GUATEMALA, S. A. |  32020230 |       5 |
+| DE AMÉRICA CENTRAL, S. A.         |  34342100 |       4 |
+| G&T CONTINENTAL, S. A.            |  55685038 |       3 |
+| DE DESARROLLO RURAL, S. A.        |  84433466 |       2 |
+| INDUSTRIAL, S. A.                 | 107179306 |       1 |
 +-----------------------------------+-----------+---------+
 
 -- consulta 2
 
+SELECT * FROM (
 SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo asc) Ranking
-FROM indicador join banco on indicador.id_banco=banco.id where fecha ='2021-02-28' limit 5;
+FROM indicador join banco on indicador.id_banco=banco.id where fecha ='2021-02-28' limit 5) AS col1
+order by col1.activo desc;
 
 +----------------------------+---------+---------+
 | nombre                     | activo  | Ranking |
 +----------------------------+---------+---------+
-| CREDICORP, S. A.           |  447673 |       1 |
-| VIVIBANCO, S. A.           |  790974 |       2 |
-| INV, S. A.                 |  932459 |       3 |
-| DE ANTIGUA, S. A.          | 1509598 |       4 |
 | AZTECA DE GUATEMALA, S. A. | 1911612 |       5 |
+| DE ANTIGUA, S. A.          | 1509598 |       4 |
+| INV, S. A.                 |  932459 |       3 |
+| VIVIBANCO, S. A.           |  790974 |       2 |
+| CREDICORP, S. A.           |  447673 |       1 |
 +----------------------------+---------+---------+
 
 -- consulta 3
 
-select ROW_NUMBER() OVER(ORDER BY sum(RowNumberb)asc) ranking, nombre,sum(activo) from(SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
+select * from (
+select ROW_NUMBER() OVER(ORDER BY sum(RowNumberb)asc) ranking, nombre,sum(activo) as suma from(SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
 join banco on indicador.id_banco=banco.id where fecha ='2020-11-30'
 UNION SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
 join banco on indicador.id_banco=banco.id where fecha ='2020-12-31' 
@@ -138,15 +143,16 @@ UNION SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo des
 join banco on indicador.id_banco=banco.id where fecha ='2021-03-31' 
 UNION SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
 join banco on indicador.id_banco=banco.id where fecha ='2021-04-30')AS tabla
-group by nombre order by sum(RowNumberb)limit 3;
+group by nombre order by sum(RowNumberb)limit 3) as col1
+order by col1.suma;
 
-+---------+----------------------------+-------------+
-| ranking | nombre                     | sum(activo) |
-+---------+----------------------------+-------------+
-|       1 | INDUSTRIAL, S. A.          |   658715167 |
-|       2 | DE DESARROLLO RURAL, S. A. |   514970305 |
-|       3 | G&T CONTINENTAL, S. A.     |   337678776 |
-+---------+----------------------------+-------------+
++---------+----------------------------+-----------+
+| ranking | nombre                     | suma      |
++---------+----------------------------+-----------+
+|       3 | G&T CONTINENTAL, S. A.     | 337678776 |
+|       2 | DE DESARROLLO RURAL, S. A. | 514970305 |
+|       1 | INDUSTRIAL, S. A.          | 658715167 |
++---------+----------------------------+-----------+
 
 -- consulta 4
 
