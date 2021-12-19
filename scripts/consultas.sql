@@ -1,4 +1,4 @@
-select ROW_NUMBER() OVER(ORDER BY activo desc) ranking, nombre,sum(activo) from(SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
+select ROW_NUMBER() OVER(ORDER BY sum(RowNumberb)asc) ranking, nombre,sum(activo) from(SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
 join banco on indicador.id_banco=banco.id where fecha ='2020-11-30'
 UNION SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
 join banco on indicador.id_banco=banco.id where fecha ='2020-12-31' 
@@ -13,7 +13,7 @@ join banco on indicador.id_banco=banco.id where fecha ='2021-04-30')AS tabla
 group by nombre order by sum(RowNumberb)limit 3;
 
 
-select ROW_NUMBER() OVER(ORDER BY activo desc) ranking, nombre,sum(activo) from(SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
+select ROW_NUMBER() OVER(ORDER BY sum(RowNumberb) asc) ranking, nombre,sum(activo) from(SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
 join banco on indicador.id_banco=banco.id where fecha ='2020-11-30'
 UNION SELECT banco.nombre,indicador.activo,ROW_NUMBER() OVER(ORDER BY activo desc) RowNumberb FROM indicador
 join banco on indicador.id_banco=banco.id where fecha ='2020-12-31' 
