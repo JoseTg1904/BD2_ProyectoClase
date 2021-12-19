@@ -19,7 +19,7 @@ select banco.nombre,
 	(select @i2 := 0) as col
 	where month(fecha) = 1 and year(fecha) = 2021
 	order by activo desc
-) as col where col.id_banco = banco.id ) as enero_2121,
+) as col where col.id_banco = banco.id ) as enero_2021,
 (select con from (
 	select @i3 := @i3 + 1 as con, id_banco from indicador,
 	(select @i3 := 0) as col
