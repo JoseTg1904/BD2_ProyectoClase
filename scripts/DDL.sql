@@ -1,3 +1,4 @@
+-- fase 1
 create database if not exists bd2_proyectoClase;
 
 use bd2_proyectoClase;
@@ -23,4 +24,11 @@ create table if not exists indicador (
     capital int,
     fecha date,
     foreign key(id_banco) references banco(id)
+);
+
+-- fase 2
+create table if not exists Usuario (
+	usuario int auto_increment primary key,
+    nombre varchar(10),
+    contra varchar(10)
 );

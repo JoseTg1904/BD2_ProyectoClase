@@ -1,3 +1,4 @@
+-- fase 1
 load data infile '/var/lib/mysql-files/bancos.csv'
 into table temporal
 charset utf8
@@ -20,3 +21,7 @@ select
 from temporal;
 
 drop table temporal;
+
+-- fase 2 
+insert into Usuario (nombre, contra) values
+("usuario1", "1234"), ("usuario2", "1234");
