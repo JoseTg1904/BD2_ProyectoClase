@@ -13,8 +13,9 @@ export class LoginComponent implements OnInit {
 
   hide = true;
 
-  constructor(private peticion: GeneralService, private router: Router,
-    private snackBar: MatSnackBar) { }
+  constructor(private peticion: GeneralService, private router: Router, private snackBar: MatSnackBar) {
+    localStorage.removeItem("loggeado")
+  }
 
   ngOnInit(): void { }
 

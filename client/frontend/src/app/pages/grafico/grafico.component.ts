@@ -200,6 +200,16 @@ export class GraficoComponent implements OnInit {
     },
     plugins: {
       legend: {
+        title: {
+          text: "Indicadores bancarios de Noviembre 2020 a Ocubre 2021",
+          display: true,
+          color: 'black',
+          position: "center",
+          font: {
+            weight: 'bold',
+            size: 14
+          }
+        },
         display: true, position: 'right', labels: {
           color: 'black',
           font: {
@@ -220,11 +230,8 @@ export class GraficoComponent implements OnInit {
       }
     },
     layout: {
-      padding: {
-
-      },
       autoPadding: true
-    }
+    },
   };
 
   public lineChartType: ChartType = 'line';
