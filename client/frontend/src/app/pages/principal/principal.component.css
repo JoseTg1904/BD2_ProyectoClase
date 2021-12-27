@@ -1,0 +1,13 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+#container {
+    height: 100vh;
+    width: 100vw;
+    background: rgb(140, 190, 178);
+}
+
+#barra {
+    background-color: rgb(240, 96, 96);
+}

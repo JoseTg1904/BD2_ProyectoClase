@@ -1,0 +1,90 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <ng-container matColumnDef="nombre">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="noviembre_2020">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Noviembre </th>
+        <td mat-cell *matCellDef="let element"> {{element.noviembre_2020}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="diciembre_2020">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Diciembre </th>
+        <td mat-cell *matCellDef="let element"> {{element.diciembre_2020}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="enero_2021">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Enero </th>
+        <td mat-cell *matCellDef="let element"> {{element.enero_2021}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="febrero_2021">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Febrero </th>
+        <td mat-cell *matCellDef="let element"> {{element.febrero_2021}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="marzo_2021">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Marzo </th>
+        <td mat-cell *matCellDef="let element"> {{element.marzo_2021}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="abril_2021">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Abril </th>
+        <td mat-cell *matCellDef="let element"> {{element.abril_2021}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mayo_2021">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Mayo </th>
+        <td mat-cell *matCellDef="let element"> {{element.mayo_2021}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="junio_2021">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Junio </th>
+        <td mat-cell *matCellDef="let element"> {{element.junio_2021}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="julio_2021">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Julio </th>
+        <td mat-cell *matCellDef="let element"> {{element.julio_2021}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="agosto_2021">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Agosto </th>
+        <td mat-cell *matCellDef="let element"> {{element.agosto_2021}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="septiembre_2021">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Septiembre </th>
+        <td mat-cell *matCellDef="let element"> {{element.septiembre_2021}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="octubre_2021">
+        <th style="text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef> Octubre </th>
+        <td mat-cell *matCellDef="let element"> {{element.octubre_2021}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="invisible">
+        <th style="background-color: rgb(140, 190, 178);" mat-header-cell *matHeaderCellDef [attr.colspan]="1">
+        </th>
+    </ng-container>
+
+    <ng-container matColumnDef="2020">
+        <th style="background-color: rgb(242, 177, 90); text-align: center; border-right: 1px solid currentColor; font-weight: bold; font-size: 15px;"
+            mat-header-cell *matHeaderCellDef [attr.colspan]="2">
+            2020
+        </th>
+    </ng-container>
+
+    <ng-container matColumnDef="2021">
+        <th style="background-color: rgb(177, 190, 140); 
+        text-align: center; font-weight: bold; font-size: 15px;" mat-header-cell *matHeaderCellDef
+            [attr.colspan]="10">
+            2021
+        </th>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['invisible', '2020', '2021']"></tr>
+    <tr style="text-align: center; font-weight: bold; " mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

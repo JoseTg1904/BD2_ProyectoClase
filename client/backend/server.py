@@ -33,7 +33,7 @@ def inicio():
 def login():
     query = "select * from Usuario where nombre = %s and contra = %s"
 
-    cursor = connection.cursor()
+    cursor = connection.cursor(buffered = True)
     cursor.execute(query, (request.json["usuario"], request.json["contra"]))
 
     return jsonify({ "estado": cursor.rowcount })
@@ -42,7 +42,7 @@ def login():
 def bancos():
     query = "select * from banco"
 
-    cursor = connection.cursor(dictionary = True)
+    cursor = connection.cursor(dictionary = True, buffered = True)
     cursor.execute(query)
 
     return jsonify(cursor.fetchall()) 
@@ -121,7 +121,7 @@ def ranking():
     from banco
     order by noviembre_2020"""
 
-    cursor = connection.cursor(dictionary = True)
+    cursor = connection.cursor(dictionary = True, buffered = True)
     cursor.execute(query)
 
     return jsonify(cursor.fetchall()) 
@@ -138,8 +138,8 @@ def ranking():
 def modificar():
     query = "update indicador set activo = %s where id_banco = %s and month(fecha) = %s and year(fecha) = %s"
 
-    cursor = connection.cursor()
-    cursor.execute(query, (request.json["activo"], request.json["id"], request.json["mes"], request.json["anio"]))
+    cursor = connection.cursor(buffered = True)
+    cursor.execute(query, (request.json["activo"], request.json["id_banco"], request.json["mes"], request.json["anio"]))
     
     connection.commit()
 

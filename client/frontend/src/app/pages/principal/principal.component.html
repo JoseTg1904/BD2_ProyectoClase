@@ -1,0 +1,22 @@
+<div id="container">
+    <mat-toolbar id="barra">
+        <span>Indicadores financieros</span>
+        <span class="example-spacer"></span>
+        <button mat-button (click) = "carga()" >
+            Cargar <mat-icon>attach_file</mat-icon>
+        </button>
+        <button mat-button (click) = "tabla()">
+            Tabla <mat-icon>table_chart</mat-icon>
+        </button>
+        <button mat-button (click) = "grafico()" >
+            Grafico <mat-icon>show_chart</mat-icon>
+        </button>
+        <button mat-button (click) = "modificar()">
+            Modificar <mat-icon>account_balance</mat-icon>
+        </button>
+        <button mat-button (click)="logout()">
+            Salir <mat-icon>exit_to_app</mat-icon>
+        </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</div>

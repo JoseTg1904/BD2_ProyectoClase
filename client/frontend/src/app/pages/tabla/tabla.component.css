@@ -1,0 +1,110 @@
+.demo-table {
+    width: 100%;
+}
+  
+.mat-column-nombre {
+    width: 15px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+    font-size: 16px;
+    background-color: rgb(140, 152, 190);
+}
+  
+.mat-column-noviembre_2020 {
+    width: 15px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(243, 181, 98);
+}
+
+.mat-column-diciembre_2020 {
+    border-right: 1px solid currentColor;
+    width: 15px;
+    padding-left: 16px;
+    padding-right: 24px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(243, 181, 98);
+}
+
+.mat-column-enero_2021 {
+    width: 15px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(177, 190, 140);
+}
+
+.mat-column-febrero_2021 {
+    width: 15px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(177, 190, 140);
+}
+
+.mat-column-marzo_2021 {
+    width: 15px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(177, 190, 140);
+}
+
+.mat-column-abril_2021 {
+    width: 15px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(177, 190, 140);
+}
+
+.mat-column-mayo_2021 {
+    width: 15px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(177, 190, 140);
+}
+
+.mat-column-junio_2021 {
+    width: 15px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(177, 190, 140);
+}
+
+.mat-column-julio_2021 {
+    width: 15px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(177, 190, 140);
+}
+
+.mat-column-agosto_2021 {
+    width: 15px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(177, 190, 140);
+}
+
+.mat-column-septiembre_2021 {
+    width: 15px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(177, 190, 140);
+}
+
+.mat-column-octubre_2021 {
+    width: 15px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(177, 190, 140);
+}

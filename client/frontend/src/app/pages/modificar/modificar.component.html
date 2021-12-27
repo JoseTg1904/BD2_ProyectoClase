@@ -1,0 +1,55 @@
+<div id="container">
+    <mat-card id="card">
+        <mat-card-content>
+            <mat-form-field style="width: 12.5vw;" appearance="outline">
+                <mat-icon matPrefix>business</mat-icon>
+                <mat-label>Seleccione un banco</mat-label>
+                <mat-select [(value)]="seleccionado">
+                    <mat-option>--</mat-option>
+                    <mat-option [value]="item.id" *ngFor="let item of bancos">{{item.nombre}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field style="width: 12.5vw;" appearance="outline">
+                <mat-icon matPrefix>calendar_today</mat-icon>
+                <mat-label>Seleccione un año</mat-label>
+                <mat-select [(value)]="anio">
+                    <mat-option value=2020>2020</mat-option>
+                    <mat-option value=2021>2021</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field style="width: 12.5vw;" appearance="outline">
+                <mat-icon matPrefix>calendar_today</mat-icon>
+                <mat-label>Seleccione un mes</mat-label>
+                <mat-select [(value)]="mes">
+                    <mat-option *ngIf="anio == 2020" value=11>11</mat-option>
+                    <mat-option *ngIf="anio == 2020" value=12>12</mat-option>
+                    <mat-option *ngIf="anio == 2021" value=1>1</mat-option>
+                    <mat-option *ngIf="anio == 2021" value=2>2</mat-option>
+                    <mat-option *ngIf="anio == 2021" value=3>3</mat-option>
+                    <mat-option *ngIf="anio == 2021" value=4>4</mat-option>
+                    <mat-option *ngIf="anio == 2021" value=5>5</mat-option>
+                    <mat-option *ngIf="anio == 2021" value=6>6</mat-option>
+                    <mat-option *ngIf="anio == 2021" value=7>7</mat-option>
+                    <mat-option *ngIf="anio == 2021" value=8>8</mat-option>
+                    <mat-option *ngIf="anio == 2021" value=9>9</mat-option>
+                    <mat-option *ngIf="anio == 2021" value=10>10</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Nuevo activo</mat-label>
+                <input type="number" min = "0" max = "2147483646" matInput #activo>
+                <button mat-icon-button matPrefix>
+                    <mat-icon>attach_money</mat-icon>
+                </button>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button (click)="modificarActivo(activo.value);
+            activo.value = '';
+            mes = 0;
+            anio = 0;
+            seleccionado = 0" mat-button>Modificar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
